@@ -1,0 +1,40 @@
+from datetime import datetime
+
+from sqlalchemy import BigInteger, DateTime, ForeignKey, String, func
+from sqlalchemy.orm import Mapped, mapped_column
+
+from app.db import Base
+
+
+class OwnerModel(Base):
+    __tablename__ = "owners"
+
+    id: Mapped[int] = mapped_column(primary_key=True)
+    telegram_user_id: Mapped[int] = mapped_column(
+        BigInteger,
+        unique=True,
+        index=True,
+    )
+    created_at: Mapped[datetime] = mapped_column(
+        DateTime(timezone=True),
+        server_default=func.now(),
+    )
+
+
+class NoteModel(Base):
+    __tablename__ = "notes"
+
+    id: Mapped[int] = mapped_column(primary_key=True)
+    owner_id: Mapped[int] = mapped_column(
+        ForeignKey(
+            "owners.id",
+            name="fk_notes_owner_id_owners",
+            ondelete="CASCADE",
+        ),
+        index=True,
+    )
+    text: Mapped[str] = mapped_column(String(4000))
+    created_at: Mapped[datetime] = mapped_column(
+        DateTime(timezone=True),
+        server_default=func.now(),
+    )

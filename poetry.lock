@@ -432,6 +432,18 @@ optional = ["typing-extensions (>=4)"]
 re2 = ["google-re2 (>=1.1)"]
 
 [[package]]
+name = "pgvector"
+version = "0.5.0"
+description = "pgvector support for Python"
+optional = false
+python-versions = ">=3.10"
+groups = ["main"]
+files = [
+    {file = "pgvector-0.5.0-py3-none-any.whl", hash = "sha256:fedc9800894e6da2be51358d7b7c574bf34f247ca741a5a09513622135f5964f"},
+    {file = "pgvector-0.5.0.tar.gz", hash = "sha256:07a9dcf735696879406983afc6eba9a787cef7c0cf6c367ca1a5779f036dee74"},
+]
+
+[[package]]
 name = "platformdirs"
 version = "4.11.9"
 description = "A small Python package for determining appropriate platform-specific dirs, e.g. a `user data dir`."
@@ -959,4 +971,4 @@ standard = ["httptools (>=0.8.0)", "python-dotenv (>=0.13)", "pyyaml (>=5.1)", "
 [metadata]
 lock-version = "2.1"
 python-versions = "^3.14"
-content-hash = "7032f0481275c7188e8d6a5c9b92d16c119f8e107e01928cb174a816af52b019"
+content-hash = "293ebad3b2f69f07b5344fe2a0b59713944d970f3b38482a11cc282309bcf025"
